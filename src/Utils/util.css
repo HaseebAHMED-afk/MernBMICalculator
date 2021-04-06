@@ -1,0 +1,34 @@
+.low{
+    background-color: rgb(204, 53, 7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.stable{
+    background-color: rgb(7, 204, 7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.moderate{
+    background-color: rgb(2, 105, 131);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.high{
+    background-color: rgb(18, 4, 80);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.critical{
+    background-color: rgb(243, 0, 0);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
