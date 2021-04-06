@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
+
+body{
+    background: url('https://cdn.pixabay.com/photo/2020/12/20/21/17/city-5848267_1280.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+.page{
+    text-align: center;
+}
+.input-section{
+    width: 50%;
+    margin: auto;
+}
+.input-elem{
+    margin: 10px !important;
+    width: 100% !important;
+}
+.input-data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.input-elem-data{
+    margin: 10px !important;
+    width: 100% !important;
+}
