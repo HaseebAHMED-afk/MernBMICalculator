@@ -22,8 +22,20 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: auto !important;
 }
 .input-elem-data{
     margin: 10px !important;
     width: 100% !important;
+}
+
+button{
+    margin: 10px !important;
+    width: 100% !important;
+}
+
+@media only screen and (max-width: 700px){
+    .input-data{
+        display: block;
+    }
 }

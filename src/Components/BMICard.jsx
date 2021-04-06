@@ -1,7 +1,7 @@
 import React from 'react'
 import './Card.css'
 
-const BMICard = () => {
+const BMICard = ({name,cnic,height,weight,bmi,status}) => {
     return (
         <div className='card' >
             <h1>Name</h1>
