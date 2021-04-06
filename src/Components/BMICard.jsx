@@ -6,20 +6,16 @@ import Moderate from '../Utils/Moderate'
 import Stable from '../Utils/Stable'
 import './Card.css'
 
-const BMICard = ({name,cnic,height,weight,bmi,status}) => {
+const BMICard = ({name,cnic,height,weight,bmi}) => {
     return (
         <div className='card' >
-            <h1>Name</h1>
-            <p>CNIC</p>
-            <p>Height</p>
-            <p>Weight</p>
-            <p>BMI</p>
+            <h1>Name: {name}</h1>
+            <p>CNIC: {cnic} </p>
+            <p>Height: {height} </p>
+            <p>Weight: {weight} </p>
+            <p>BMI: {bmi} </p>
             <p>Status</p>
-            {/* <Low />
-            <Moderate />
-            <Stable />
-            <High />
-            <Critical /> */}
+            
         </div>
     )
 }

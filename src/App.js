@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { Button, TextField, Typography } from '@material-ui/core';
 import './App.css';
 import BMICard from './Components/BMICard';
-
+import axios from 'axios'
 
 function App() {
 
@@ -12,26 +12,36 @@ function App() {
   const [weight , setWeight ] = useState(0)
   const [BMI , setBMI] = useState(0);
 
+  let [data,setData] = useState(null)
 
-  const handleSubmit = () =>{
-    calculateBMI(height , weight);
+  useEffect(()=>{
+    const fetchData = async () =>{
+      const {data} = await axios.get('http://localhost:5000');
+      setData(data);
+    }
+
+    fetchData();
+  }, [])
+
+  const handleSubmit = async () =>{
+   
+    let newHeight = height / 100;
+    let result = weight / (newHeight^2);
 
     let data = {
       name,
       CNIC,
       height,
       weight,
-      BMI
+      BMI: result
     }
 
     console.log(data);
+
+     await axios.post('http://localhost:5000', data).then((response) =>console.log(response)).catch((err) => console.log(err));
+     await window.location.reload();
   }
 
-  const calculateBMI = (height , weight) =>{
-    let newHeight = height / 100;
-    let result = weight / (newHeight^2);
-    setBMI(result);
-  }
 
 
   return (
@@ -47,7 +57,12 @@ function App() {
       </div>
       <Button variant='contained' color='secondary' onClick={handleSubmit}>Submit</Button>
     </div>
-    <BMICard />
+    {
+      data && data.map((card,i) => (
+        <BMICard key={i} name={card.name} cnic={card.CNIC} height={card.height} weight={card.weight} bmi={card.BMI}  />
+      ))
+    }
+    
     </div>
    
   );
