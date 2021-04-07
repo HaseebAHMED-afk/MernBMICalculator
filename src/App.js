@@ -6,13 +6,20 @@ import axios from 'axios'
 
 function App() {
 
+  // Set states for vars
+
   const [name , setName ] = useState('')
   const [CNIC , setCNIC ] = useState('')
   const [height , setHeight ] = useState(0)
   const [weight , setWeight ] = useState(0)
 
+
+  // Set state for data
+
   let [data,setData] = useState(null)
 
+
+  //Get data from server. Runs only once
   useEffect(()=>{
     const fetchData = async () =>{
       const {data} = await axios.get('http://localhost:5000');
@@ -22,7 +29,11 @@ function App() {
     fetchData();
   }, [])
 
+  //Handle Submit Button
+
   const handleSubmit = async () =>{
+
+    //Convert to m
    
     let newHeight = height / 100;
     let result = weight / (newHeight^2);
@@ -35,10 +46,11 @@ function App() {
       BMI: result
     }
 
-
+    // Post to server
      await axios.post('http://localhost:5000', data).then((response) =>console.log(response)).catch((err) => console.log(err));
      await window.location.reload();
   }
+
 
 
 
@@ -56,6 +68,7 @@ function App() {
       <Button variant='contained' color='secondary' onClick={handleSubmit}>Submit</Button>
     </div>
     {
+      // Get data from server, loops through, creates new BMI for eact iteration.
       data && data.map((card,i) => (
         <BMICard key={i} name={card.name} cnic={card.CNIC} height={card.height} weight={card.weight} bmi={card.BMI}  />
       ))
