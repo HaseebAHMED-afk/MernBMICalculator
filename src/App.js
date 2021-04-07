@@ -10,7 +10,6 @@ function App() {
   const [CNIC , setCNIC ] = useState('')
   const [height , setHeight ] = useState(0)
   const [weight , setWeight ] = useState(0)
-  const [BMI , setBMI] = useState(0);
 
   let [data,setData] = useState(null)
 
@@ -36,7 +35,6 @@ function App() {
       BMI: result
     }
 
-    console.log(data);
 
      await axios.post('http://localhost:5000', data).then((response) =>console.log(response)).catch((err) => console.log(err));
      await window.location.reload();
