@@ -42,8 +42,6 @@ app.post('/' , (req,res) => {
         BMI: req.body.BMI
     })
 
-    console.log(bmi);
-
     bmi.save().then((response) => res.json(response)).catch((err) => res.json(err));
 
 
